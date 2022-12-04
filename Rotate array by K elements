@@ -1,0 +1,41 @@
+# include<bits/stdc++.h>
+using namespace std;
+void rotateleft(int arr[], int k, int n){
+    if(n==0){
+        return;
+    }
+    k = k % n;
+    if(k>n){
+        return;
+    }
+    int temp[k];
+  for(int i =n-k; i<n; i++){
+      temp[i-n+k]=arr[i];
+  }
+  for(int i =n-k-1; i>=0; i--){
+      arr[i+k]=arr[i];
+  }
+  for(int i=0; i<k; i++){
+      arr[i]=temp[i];
+  }
+}
+    int main(){
+        cout<<"Enter the length of the array "<<endl;
+        int n;
+        int k;
+        cin>>n;
+        cout<<"Enter the value of k "<<endl;
+        cin>>k;
+        int arr[n];
+        
+        cin>>k;
+        for(int i =0; i<n; i++){
+            cin>>arr[i];
+        }
+       rotateleft(arr, k, n);
+        cout<<"Array after rotating right from k : "<<endl;
+        for(int i =0; i<n; i++){
+            cout<<arr[i];
+        }
+    }
+    
